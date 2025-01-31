@@ -1,0 +1,531 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+%\usepackage{fitch}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usepackage{blindtext}
+\usepackage{multicol}
+\renewcommand{\thesection}{\Roman{section}}
+
+ 
+\title{Logic Exam 1}
+\author{Angus Macfarlane}
+\date{3 November 2023}
+
+\begin{document}
+
+\maketitle
+
+
+\section{}
+\subsection*{}
+\textbf{1.} $\sim Q \lor (\sim P \lor R); P \supset Q ~ / \therefore P \supset R $
+
+\begin{tabbing}
+
+    \indent 1) $\sim Q \lor (\sim P \lor R) $ ~~~~~~ \= \\
+
+    \indent 2) $P \supset Q$  \> / $\therefore P \supset R$ \\
+
+    \indent 3) $Q \supset (\sim P \lor R)$ \>  MI 1 \\
+
+    \indent \indent 4) $P$ \>  \indent CP / $\therefore R$ \\
+    \indent  \indent 5) $Q$ \> \indent MP 2, 4 \\
+    \indent  \indent 6) $\sim P \lor R$ \> \indent MP 3, 5 \\
+    \indent  \indent 7) $P \supset R$ \> \indent MI 6 \\
+    \indent  \indent 8) $R$ \> \indent MP 4, 7 \\
+    \indent 9) $P \supset R$ \> CP 4-8 \\
+\end{tabbing}
+
+\subsection*{}
+\textbf{2.} $\sim A \lor B$; $A \supset \sim B$ ~ / $\therefore \sim A $
+\begin{tabbing}
+    \indent 1) $\sim A \lor B$ ~~~~~~~~ \= \\
+    \indent 2) $A \supset \sim B$ \> / $\therefore \sim A$ \\
+    \indent 3) $A \supset B$ \> MI 1 \\
+    \indent 4) $\sim B \supset \sim A$ \> Contr. 3 \\
+    \indent 5) $A \supset \sim A$ \> HS 2, 4 \\
+    \indent 6) $\sim \sim A \supset \sim A$ \> DN 5 \\
+    \indent 7) $\sim A \lor \sim A$ \> MI 6 \\
+    \indent 8) $\sim A$ \> Taut. 7 \\
+    
+\end{tabbing}
+\pagebreak
+
+\subsection*{}
+\textbf{3.} $Q \lor (R \cdot S); Q \supset T; T \supset S ~ / \therefore S $
+
+\begin{tabbing}
+    \indent 1) $Q \lor (R \cdot S)$ ~~~~~~~~ \= \\
+    \indent 2) $Q \supset T$ \\
+    \indent 3) $T \supset S$ \> / $\therefore S$ \\
+    \indent \indent 4) $\sim S$ \> \indent CP / $\therefore S$ \\
+    \indent \indent 5) $\sim T$ \> \indent MT 3, 4 \\
+    \indent \indent 6) $\sim Q$ \> \indent MT 2, 5 \\
+    \indent \indent 7) $R \cdot S$ \> \indent DS 1, 6 \\
+    \indent \indent 8) $S$ \> \indent Simp. 7 \\
+    \indent 9) $\sim S \supset S$ \> CP 4-8 \\
+    \indent 10) $\sim \sim S \lor S$ \> DN 9 \\
+    \indent 11) $S \lor S$ \> MI  10 \\
+    \indent 12) $S$ \> Taut. 11 \\
+\end{tabbing}   
+
+\subsection*{}
+\textbf{4.} $A \supset (B \supset C); A \supset B; C \supset D ~ / \therefore A \supset D$
+
+\begin{tabbing}
+    \indent 1) $A \supset (B \supset C)$ ~~~~~~~~ \= \\
+    \indent 2) $A \supset B$ \\
+    \indent 3) $C \supset D$ \> /$\therefore A \supset D$ \\
+    \indent \indent 4) $A$ \> \indent CP / $\therefore D$ \\
+    \indent \indent 5) $B$ \> \indent MP 2, 4 \\
+    \indent \indent 6) $B \supset C$ \> \indent MP 1, 4 \\
+    \indent \indent 7) $C$ \> \indent MP 5, 6 \\
+    \indent \indent 8) $D$ \> \indent MP 3, 7 \\
+    \indent 9) $A \supset D$ \> CP 4-8 \\
+    
+
+\end{tabbing}
+
+\subsection*{}
+\textbf{5.} $(P \supset Q) \cdot (S \supset T); \sim R \lor (P \lor S) ~ / \therefore R \supset (Q \lor T)$
+
+\begin{tabbing}
+    \indent 1) $(P \supset Q) \cdot (S \supset T)$ ~~~~~~~~ \= \\
+    \indent 2) $\sim R \lor (P \lor S)$ \> /$\therefore R \supset (Q \lor T)$ \\
+    \indent 3) $P \supset Q$ \> Simp. 1 \\
+    \indent 4) $S \supset T$ \> Simp. 1 \\
+    \indent \indent 5) $R$ \> \indent CP / $\therefore Q \lor T$ \\
+    \indent \indent 6) $\sim \sim R$ \> \indent DN 5 \\
+    \indent \indent 7) $P \lor S$ \> \indent DS 6, 2 \\
+    \indent \indent 8) $Q \lor T$ \> \indent CD 3, 4, 7 \\
+    \indent 9) $R \supset (Q \lor T)$ \> CP 5-8 \\
+\end{tabbing}
+
+\subsection*{}
+\textbf{6.} $\sim (T \lor U); S; R \equiv \sim S ~ / \therefore \sim (U \lor R)$
+
+\begin{tabbing}
+    \indent 1) $\sim (T \lor U)$ ~~~~~~~~ \= \\
+    \indent 2) $S$ \\
+    \indent 3) $R \equiv \sim S$ \> / $\therefore \sim (U \lor R)$ \\
+    \indent 4) $\sim T \cdot \sim U$ \> DM 1 \\
+    \indent 5) $\sim U$ \> Simp. 4 \\
+    \indent 6) $\sim S \equiv R$ \> BiComm. 3 \\
+    \indent 7) $\sim \sim S$ \> DN 2 \\
+    \indent 8) $\sim R$ \> BiMT 6, 7 \\
+    \indent 9) $\sim U \cdot \sim R$ \> Conj. 5, 8 \\
+    \indent 10 $\sim (U \lor R)$ \> DM 9
+\end{tabbing}
+
+\subsection*{}
+\textbf{7.} $P \lor Q; Q \supset (R \cdot S); (R \lor P) \supset T ~ / \therefore T$
+
+\begin{tabbing}
+    \indent 1) $P \lor Q$ ~~~~~~~~~~~~~~~ \= \\
+    \indent 2) $Q \supset (R \cdot S)$ \\
+    \indent 3) $(R \lor P) \supset T$ \> / $\therefore T$ \\
+    \indent \indent 4) $\sim P$ \> 
+    \indent CP / $\therefore R$ \\
+    \indent \indent 5) $Q$ \> \indent DS 1, 5 \\
+    \indent \indent 6) $R \cdot S$ \> \indent MP 2, 5 \\
+    \indent \indent 7) $R$ \> \indent Simp. 6 \\
+    \indent 8) $\sim P \supset R$ \> CP 4-7 \\
+    \indent 9) $\sim \sim P \lor R$ \> MI 8 \\
+    \indent 10) $P \lor R$ \> DN 9 \\
+    \indent 11) $R \lor P$ \> Comm. 10 \\
+    \indent 12) $T$ \> MP 3, 11 \\
+\end{tabbing}
+
+\subsection*{}
+\textbf{8.} $P \supset Q; \sim (P \cdot Q) ~ / \therefore \sim P$
+
+\begin{tabbing}
+    \indent 1) $P \supset Q$ ~~~~~~~~~~~~~~ \= \\
+    \indent 2) $\sim (P \cdot Q)$ \> / $
+    \therefore \sim P$ \\
+    \indent 3) $\sim P ~ \lor \sim Q$ \> DM 2 \\
+    \indent 4) $P \supset Q$ \> MI 3 \\
+    \indent 5) $\sim \sim Q \supset \sim P$ \> Contr. 4 \\
+    \indent 6) $Q \supset \sim P$ \> DN 5 \\
+    \indent 7) $P \supset \sim P$ \> HS 1, 6 \\
+    \indent 8) $\sim \sim P \supset P$ \> DN 7 \\
+    \indent 9) $\sim P ~ \lor \sim P$ \> MI 8 \\
+    \indent 10) $\sim P$ \> Taut. 9 \\
+\end{tabbing}
+
+\subsection*{}
+\textbf{9.} / $\therefore B \supset (A ~ \lor \sim A)$
+
+\begin{tabbing}
+    \indent \indent 1) $\sim [B \supset (A ~ \lor \sim A)]$ ~~~~~~~~~~~~ \= \indent IP / $\therefore ~ \perp$ \\
+    \indent \indent 2) $\sim [ \sim \sim B \supset (A ~ \lor \sim A)]$ \> \indent DN 1 \\
+    \indent \indent 3) $\sim [ \sim B \lor (A \lor \sim A)]$ \> \indent MI 2 \\
+    \indent \indent 4) $\sim \sim B ~ \cdot \sim (A \lor \sim A)$ \> \indent DM 3 \\
+    \indent \indent 5) $\sim \sim B \cdot (\sim A \cdot \sim \sim A)$ \> \indent DM 4 \\
+    \indent \indent 6) $B \cdot (\sim A \cdot \sim \sim A)$ \> \indent DN 5 \\
+    \indent \indent 7) $B \cdot (\sim A \cdot A)$ \> \indent DN 6 \\
+    \indent \indent 8) $\sim A \cdot A$ \> \indent Simp. 7 \\
+    \indent 9) $B \supset (A \lor \sim A)$ \> IP 1-8
+\end{tabbing}
+
+\subsection*{}
+\textbf{10.} $A \supset (B \lor C); \sim (A \supset C) ~ / \therefore B$
+
+\begin{tabbing}
+    \indent 1) $A \supset (B \lor C)$ ~~~~~~~~~~~~ \= \\
+    \indent 2) $\sim (A \supset C)$ \> / $\therefore B$ \\
+    \indent 3) $\sim \sim A \supset (B \lor C)$ \> DN 1 \\
+    \indent 4) $\sim A \lor (B \lor C)$ \> MI 3 \\
+    \indent 5) $(B \lor C) \lor \sim A$ \> Comm. 4 \\
+    \indent 6) $\sim (\sim \sim A \supset C)$ \> DN 2 \\
+    \indent 7) $\sim (\sim A \lor C)$ \> MI 6 \\
+    \indent 8) $\sim \sim A ~ \cdot \sim C$ \> DM 7 \\
+    \indent 9) $A ~ \cdot \sim C$ \> DN 8 \\
+    \indent 10) $A$ \> Simp. 9 \\
+    \indent 11) $\sim C$ \> Simp. 9 \\
+    \indent 12) $\sim \sim A$ \> DN 10 \\
+    \indent 13) $B \lor C$ \> DS 4, 12 \\
+    \indent 14) $C \lor B$ \> Comm. 13 \\
+    \indent 15) $B$ \> DS 11, 14 \\
+\end{tabbing}
+\pagebreak
+
+\section{}
+\subsection*{}
+\textbf{11.} Plant tulips = T;
+Bloom early = E;
+Plant asters = A;
+Bloom late = L
+
+\begin{tabbing}
+    \indent 1) $(T \supset E) \cdot (A \supset L)$ / $\therefore (T \cdot A) \supset (E \cdot L)$ \\
+    \indent 
+\end{tabbing}
+
+\begin{displaymath}
+\begin{array}{|c c c c|c|c|c|c|c|c|}
+% |c c|c| means that there are three columns in the table and
+% a vertical bar ’|’ will be printed on the left and right borders,
+% and between the second and the third columns.
+% The letter ’c’ means the value will be centered within the column,
+% letter ’l’, left-aligned, and ’r’, right-aligned.
+A & E & L & T & (T \supset E) & (A \supset L) & (T \supset E) \cdot (A \supset L) & (T \cdot A) & (E \cdot L) & (T \cdot A) \supset (E \cdot L) \\ % Use & to separate the columns
+\hline  % Put a horizontal line between the table header and the rest.
+T & T & T & T & T & T & T & T & T & T\\
+T & T & T & F & T & T & T & F & T & T\\
+T & T & F & T & T & F & F & T & F & F\\
+T & T & F & F & T & F & F & F & F & T\\
+T & F & T & T & F & T & F & T & F & F\\
+T & F & T & F & T & T & T & F & F & T\\
+T & F & F & T & F & F & F & T & F & T\\
+T & F & F & F & T & F & F & F & F & T\\
+F & T & T & T & T & T & T & F & T & T\\
+F & T & T & F & T & T & T & F & T & T\\
+F & T & F & T & T & T & T & F & F & T\\
+F & T & F & F & T & T & T & F & F & T\\
+F & F & T & T & F & T & F & F & F & T\\
+F & F & T & F & T & T & T & F & F & T\\
+F & F & F & T & F & T & F & F & F & T\\
+F & F & F & F & T & T & T & F & F & T\\
+\end{array}
+\end{displaymath}
+
+This argument is valid because there are no counterexamples where the premise is true and the conclusion is false.  
+
+\subsection*{}
+\textbf{12.} Democrat elected = D; Republican elected = R; Capitalists satisfied = S; \indent There is a revolution = V \\
+
+1) $D \supset S$
+
+2) $R \supset S$
+
+3) $(D \lor R) \lor V$ ~ / $\therefore V \supset \sim S $ \\
+
+*See end of document for Truth Trees for 12, 13, and 14. (I couldn't figure out how to do them in Latex.)
+
+%Need a page break here!
+
+
+
+%\centerline{$D \supset S$}
+
+%\centerline{$R \supset S$}
+
+
+
+%\centerline{($D \lor R) \lor S$}
+
+%\centerline{$\sim (V \supset \sim S)$}
+
+%\Tree
+%[.{ } 
+%    [.{$\sim D$} 
+ %       [.{$\sim R$} ] [.{$S$} ] ]
+  %  [.{$S$} 
+   %     [.{$\sim R$} 
+    %        [.$D$ ] 
+     %       [.$R$ [.Closed ] ] 
+      %      [.$S$ ] ] 
+       % [.{$S$} ] ]
+% ]
+
+\newpage
+
+\subsection*{}
+\textbf{13.} George enrolls = G; Harry enrolls = H; Ira enrolls = I; Jim enrolls = J \\
+
+1) $(H \lor G) \supset \sim I$
+
+2) $I \lor H$
+
+3) $(H \lor \sim G) \supset J$
+
+4) $G$ ~~~~~~~~~~~~~~~~~ / $\therefore J \lor \sim H$
+
+\subsection*{}
+\textbf{14.} Seed catalog correct = C; Planted in April = A; Bloom in July = J \\
+
+1) $C \supset (A \supset J)$
+
+2) $J$ ~~~~~~~~~~~~~~~~ / $\therefore C \supset A$
+
+\section{}
+
+\textbf{15.} An informal definition of validity could be that an argument is valid if the conclusion follows from the premises. More specifically, an argument is valid if, and only if, there is no way the premises can all be true, and the conclusion false. Formally, an argument is valid when there exists no model on which all the premises are true and the conclusion is false. \\
+\subsection*{}
+
+\textbf{16.} Definitional Truth Tables
+\begin{multicols}{3}
+
+% OR
+\begin{displaymath}
+\begin{array}{|c c|c|}
+% |c c|c| means that there are three columns in the table and
+% a vertical bar ’|’ will be printed on the left and right borders,
+% and between the second and the third columns.
+% The letter ’c’ means the value will be centered within the column,
+% letter ’l’, left-aligned, and ’r’, right-aligned.
+P & Q & P \lor Q \\ % Use & to separate the columns
+\hline  % Put a horizontal line between the table header and the rest.
+T & T & T \\
+T & F & T \\
+F & T & T \\
+F & F & F \\
+\end{array}
+\end{displaymath}
+
+% AND
+\begin{displaymath}
+\begin{array}{|c c|c|}
+% |c c|c| means that there are three columns in the table and
+% a vertical bar ’|’ will be printed on the left and right borders,
+% and between the second and the third columns.
+% The letter ’c’ means the value will be centered within the column,
+% letter ’l’, left-aligned, and ’r’, right-aligned.
+P & Q & P \cdot Q \\ % Use & to separate the columns
+\hline  % Put a horizontal line between the table header and the rest.
+T & T & T \\
+T & F & F \\
+F & T & F \\
+F & F & F \\
+\end{array}
+\end{displaymath}
+
+% Implies
+\begin{displaymath}
+\begin{array}{|c c|c|}
+% |c c|c| means that there are three columns in the table and
+% a vertical bar ’|’ will be printed on the left and right borders,
+% and between the second and the third columns.
+% The letter ’c’ means the value will be centered within the column,
+% letter ’l’, left-aligned, and ’r’, right-aligned.
+P & Q & P \supset Q \\ % Use & to separate the columns
+\hline  % Put a horizontal line between the table header and the rest.
+T & T & T \\
+T & F & F \\
+F & T & T \\
+F & F & T \\
+\end{array}
+\end{displaymath}
+
+% IFF
+\begin{displaymath}
+\begin{array}{|c c|c|}
+% |c c|c| means that there are three columns in the table and
+% a vertical bar ’|’ will be printed on the left and right borders,
+% and between the second and the third columns.
+% The letter ’c’ means the value will be centered within the column,
+% letter ’l’, left-aligned, and ’r’, right-aligned.
+P & Q & P \equiv Q \\ % Use & to separate the columns
+\hline  % Put a horizontal line between the table header and the rest.
+T & T & T \\
+T & F & F \\
+F & T & F \\
+F & F & T \\
+\end{array}
+\end{displaymath}
+
+% NOT
+\begin{displaymath}
+\begin{array}{|c c|c|}
+% |c|c| means that there are three columns in the table and
+% a vertical bar ’|’ will be printed on the left and right borders,
+% and between the second and the third columns.
+% The letter ’c’ means the value will be centered within the column,
+% letter ’l’, left-aligned, and ’r’, right-aligned.
+P & \sim P \\ % Use & to separate the columns
+\hline  % Put a horizontal line between the table header and the rest.
+T & F \\
+F & T \\
+\end{array}
+\end{displaymath}
+\end{multicols}
+
+\subsection*{}
+\textbf{17.} The statement $P \supset Q$ is equivalent to $\sim P \lor Q$. 
+
+\subsection*{}
+\textbf{18.} $P \supset (Q \supset P)$ Tautologous
+
+% 18
+\begin{displaymath}
+\begin{array}{|c c|c|}
+% |c|c| means that there are three columns in the table and
+% a vertical bar ’|’ will be printed on the left and right borders,
+% and between the second and the third columns.
+% The letter ’c’ means the value will be centered within the column,
+% letter ’l’, left-aligned, and ’r’, right-aligned.
+P & Q & P \supset (Q \supset P) \\ % Use & to separate the columns
+\hline  % Put a horizontal line between the table header and the rest.
+T & T & T \\
+T & F & T \\
+F & T & T \\
+F & F & T \\
+
+\end{array}
+\end{displaymath}
+
+\subsection*{}
+\textbf{19.} $P \supset (Q ~ \cdot \sim P)$ Contingent
+
+% 19
+\begin{displaymath}
+\begin{array}{|c c|c|}
+% |c|c| means that there are three columns in the table and
+% a vertical bar ’|’ will be printed on the left and right borders,
+% and between the second and the third columns.
+% The letter ’c’ means the value will be centered within the column,
+% letter ’l’, left-aligned, and ’r’, right-aligned.
+P & Q & P \supset (Q ~ \cdot \sim P) \\ % Use & to separate the columns
+\hline  % Put a horizontal line between the table header and the rest.
+T & T & F \\
+T & F & F \\
+F & T & T \\
+F & F & T \\
+
+\end{array}
+\end{displaymath}
+
+\subsection*{}
+\textbf{20.} $\sim (P ~ \lor \sim P)$ Contradictory
+
+
+
+% 20
+\begin{displaymath}
+\begin{array}{|c|c|}
+% |c|c| means that there are three columns in the table and
+% a vertical bar ’|’ will be printed on the left and right borders,
+% and between the second and the third columns.
+% The letter ’c’ means the value will be centered within the column,
+% letter ’l’, left-aligned, and ’r’, right-aligned.
+P & \sim  (P ~ \lor \sim P) \\ % Use & to separate the columns
+\hline  % Put a horizontal line between the table header and the rest.
+T & F  \\
+F & F  \\
+
+
+\end{array}
+\end{displaymath}
+
+
+\subsection*{}
+\textbf{21.} A model is a specific instance of the valuation of a statement or argument. You can see this on a truth table. Depending on the number of variables, there are a number of combinations of valuations for each atomic sentence in the argument. A truth table contains all possible combinations. Each row is a model in that it shows the specific valuations for each atomic sentence and operators in the argument. 
+
+\subsection*{}
+\textbf{22.} This argument is valid. There are no models on which all the premises are true and the conclusion is false. 
+
+% 22
+\begin{displaymath}
+\begin{array}{|c c|c|c|c|}
+% |c|c| means that there are three columns in the table and
+% a vertical bar ’|’ will be printed on the left and right borders,
+% and between the second and the third columns.
+% The letter ’c’ means the value will be centered within the column,
+% letter ’l’, left-aligned, and ’r’, right-aligned.
+P & Q & P \supset Q & P \lor Q & Q \\ % Use & to separate the columns
+\hline  % Put a horizontal line between the table header and the rest.
+T & T & T & T & T \\
+T & F & F & F & F \\
+F & T & T & F & T \\
+F & F & T & F & F \\
+
+\end{array}
+\end{displaymath}
+
+\subsection*{}
+\textbf{23.} This argument is valid. There are no models on which the premises are all true and the conclusion false. 
+
+% 23
+\begin{displaymath}
+\begin{array}{|c c c|c|c|c|}
+% |c|c| means that there are three columns in the table and
+% a vertical bar ’|’ will be printed on the left and right borders,
+% and between the second and the third columns.
+% The letter ’c’ means the value will be centered within the column,
+% letter ’l’, left-aligned, and ’r’, right-aligned.
+P & Q & R & P \lor Q & \sim Q & R \supset P \\ % Use & to separate the columns
+\hline  % Put a horizontal line between the table header and the rest.
+T & T & T & T & F & T \\
+T & T & F & T & F & T \\
+T & F & T & T & T & T \\
+T & F & F & T & T & T \\
+F & T & T & T & F & F \\
+F & T & F & T & F & T \\
+F & F & T & F & T & F \\
+F & F & F & F & T & T \\
+
+\end{array}
+\end{displaymath}
+
+\subsection*{}
+\textbf{24.} An argument with contradictory premises will always be valid because it is impossible to make all the premises true and the conclusion false. For example:
+$P$ \\
+$\sim P$ \indent / $\therefore P \supset \sim P$ \\
+is valid because we can never make all the premises true, because if $P$ is true, $\sim P$ will be false. On a table, it would look like this:
+
+
+
+% 24
+\begin{displaymath}
+\begin{array}{|c|c|c|}
+% |c|c| means that there are three columns in the table and
+% a vertical bar ’|’ will be printed on the left and right borders,
+% and between the second and the third columns.
+% The letter ’c’ means the value will be centered within the column,
+% letter ’l’, left-aligned, and ’r’, right-aligned.
+P & \sim P & P \supset \sim P \\ % Use & to separate the columns
+\hline  % Put a horizontal line between the table header and the rest.
+T & F & F  \\
+F & T & T  \\
+
+
+\end{array}
+\end{displaymath}
+
+
+
+\end{document}
